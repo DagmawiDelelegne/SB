@@ -1,8 +1,30 @@
 {% extends 'shareab/base.html' %}
-
+{%load crispy_forms_tags %}
 
 {%block content%}
-
-    <h1> hello world</h1>
+    <body>
+    
+        <div class="container bg-light shadow-md p-5 form_layout text-center">
+           
+           
+            
+          <form method="GET" class="mt-3">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <hr>
+            <button  type="submit" class="btn btn-primary mt-2 center-button ">Search</button>
+        </form>
+        {% if results %}
+        <h3>Search Results:</h3>
+        <ul>
+            {% for book in results %}
+                <li>{{ book.title }} by {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+            
+        </div>
+        
+    </body>
 
 {%endblock%}

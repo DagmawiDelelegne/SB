@@ -16,6 +16,9 @@ urlpatterns = [
 
     path('dashboard', views.dashboard, name="dashboard"),
 
+   # path('book_search', views.book_search, name='book_search'),
+
+    path('add_book', views.add_Book, name='add_book'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
